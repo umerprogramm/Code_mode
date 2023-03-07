@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
-    "engines": {
+  "engines": {
     "node": "16.x"
   },
   "dependencies": {
@@ -21,11 +22,12 @@
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/react": "18.0.28"
   }
 }
