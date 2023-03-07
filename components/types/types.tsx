@@ -1,14 +1,6 @@
-export interface Iattributes{
-    author : string,
-    blog_text : string,
-    createdAt :string,
-    publishedAt :string,
+export interface IBlog_Data{
+    title : string,
     slug :string,
-    title :string,
-    updatedAt : string,
-}
-export interface IBlog_Data {
-
-    attributes : Iattributes
-
+    date :string,
+    content :string,
 }

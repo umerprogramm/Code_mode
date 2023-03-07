@@ -1,0 +1,6 @@
+  {
+        "title": "What is iife",
+        "slug" : "what-is-iffe" ,
+        "date" : "3/5/2023",
+        "content" : "IIFE stands for Immediately Invoked Function Expression. It is a JavaScript function that is executed as soon as it is defined. An IIFE is a function expression that is wrapped inside a set of parentheses and then immediately invoked using an additional set of parentheses."
+ }

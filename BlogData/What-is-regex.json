@@ -1,0 +1,9 @@
+
+   
+    {
+        "title": "What is regex",
+        "slug" : "What-is-regex" ,
+        "date" : "3/5/2023",
+        "content" : "Regex, short for Regular Expression, is a sequence of characters that forms a search pattern used to match and manipulate text. It is a powerful tool used in programming and text processing for finding specific patterns of characters in a string. Regular expressions can be used to validate and extract data from text, replace characters or words, and search for specific patterns of characters. They are supported by many programming languages and text editors, including Python, Java, JavaScript, Perl, and many more."
+    }
+   

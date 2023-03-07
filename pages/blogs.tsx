@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ObjectEncodingOptions } from 'fs'
 import Head from 'next/head'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -7,22 +8,9 @@ import Nav from '../components/Nav'
 import {IBlog_Data} from '../components/types/types'
 
 
-export default function Blogs() {
-
-  const [data, setData] = useState<IBlog_Data[]>([]);
+export default function Blogs(props: any) {
+  const [data ] = useState<IBlog_Data[]>(props.data);
   const [search , setSearch ] = useState<string>('')
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get('http://localhost:1337/api/videos/', {
-        headers: {
-          Authorization: `Bearer aae8b519840b4e6e9b234dc2142cea40c1325a1af80d7cfacccf55c157539eb5b227dbf809fcca8b445e76f003b73ba3348d3e7ba59b537cfa71fdb4d240b4686ed2959351b2a0cce9e59b3aa482ea166d185c9d8fbd07e4d5015332b83bea682e85303095ef54de7d33e86bdf3ee5c26cc3515c748ba880ca596758cc409a12`
-        }
-      });   
-      setData(result.data.data);
-    };
-    fetchData();
-  }, []);
   return (
     <>
      <Nav/>   
@@ -38,19 +26,21 @@ export default function Blogs() {
         data.filter(value =>{
           if(search === ""){
             return  value
-          }else if(value.attributes.title.toLowerCase().includes(search.toLowerCase())){
+          }else if(value.title.toLowerCase().includes(search.toLowerCase())){
             return value
+          }else{
+            alert("No data founded")
           }
-        }).map(value =>{
+        }).map((value , key) =>{
           return(
             
-     <div className='blogs'>
+     <div className='blogs' key={key}>
       
-       <span>{value.attributes.updatedAt}</span>
-      <Link href={`blogs/${value.attributes.slug}`}>
-      <h4>{value.attributes.title}</h4>
+       <span>{value.date}</span>
+      <Link href={`blogs/${value.slug}`}>
+      <h4>{value.title}</h4>
        </Link>
-      <p>{value.attributes.blog_text.substring(0,100)}...</p>
+      <p>{value.content.substring(0,100)}...</p>
      </div>
           )
         })
@@ -60,4 +50,15 @@ export default function Blogs() {
     <Footer/>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(process.env.NEXT_PUBLIC_Url)
+  const data = await res.json()
+
+  return {
+    props: {
+     data
+    } // will be passed to the page component as props
+  }
 }

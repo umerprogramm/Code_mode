@@ -16,13 +16,13 @@ export default function Main() {
   }, [])
   return (
     <>
-    <main className='main' style={{ display : 'flex'}}>
+    <main className='main'>
       <div style={{paddingTop : 200 , paddingLeft : 50, paddingRight : 100 }}>
       <h1 data-aos="fade-right"  style={{color : "orange"}}>Turn on your Code mode</h1>
       <h3 data-aos="fade-left" style={{color : "lightgreen"}}>and lrean something new</h3>
       </div>
- <div data-aos="zoom-in" style={{paddingLeft : '100px'}}>
-  <Image src={laptop} alt='this is laptop coding image'/>
+ <div className='image_div' data-aos="zoom-in">
+  <Image  className='image' src={laptop} alt='this is laptop coding image'/>
  </div>
     </main>
     <section>
