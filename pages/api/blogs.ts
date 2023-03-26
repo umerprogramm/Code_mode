@@ -7,20 +7,21 @@ type Data = {
 }
 let root = process.cwd()
 let root1 = root.replace('\\','/')
+let root2 =  root1.split("B:")
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
 const allData : any[] = []
-let files = await fs.promises.readdir(`${root1}/BlogData`)
+let files = await fs.promises.readdir(`${__dirname.split('.')[0]}/BlogData`)
 let Jsondata
 
 
 
 for (let index = 0; index < files.length; index++) {
   const element = files[index];
-  Jsondata = await fs.promises.readFile(`${root1}/BlogData/${element}`, 'utf-8');
+  Jsondata = await fs.promises.readFile(`${__dirname.split('.')[0]}/BlogData/${element}`, 'utf-8');
   allData.push(JSON.parse(Jsondata))
 
   
